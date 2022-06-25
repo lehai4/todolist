@@ -2,10 +2,10 @@ export const Navigation = () => {
   return (
     <>
       <nav className="menu">
-        <a href="./HomePage" className="navbar navbar-main">
+        <a href="/home" className="navbar navbar-main">
           Home
         </a>
-        <a href="./ToDoList" className="navbar navbar-Todo">
+        <a href="/todolist" className="navbar navbar-Todo">
           ToDoList
         </a>
       </nav>

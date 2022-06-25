@@ -1,9 +1,9 @@
 import React from "react";
 export const Image = () => {
   return (
-    <a href="App.js" className="img-react">
+    <a href="./">
       <img
-        src="https://koalakhoi-survey-test.vercel.app/6ce24c58023cc2f8fd88fe9d219db6c6.svg"
+        src="https://portfolio-lehai4.vercel.app/assets/img/react.svg"
         className="App-logo"
         alt="logo"
       />

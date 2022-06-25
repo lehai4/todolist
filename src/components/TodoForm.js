@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react";
 
-function TodoForm({ edit, dataForm, handleSubmit, handleChange }) {
+function TodoForm(props) {
+  const { edit, dataForm, handleSubmit, handleChange } = props;
   const inputRef = useRef(null);
 
   useEffect(() => {
     inputRef.current.focus();
   });
-
   return (
     <div>
       <form onSubmit={handleSubmit} className="todo-form">
@@ -27,7 +27,7 @@ function TodoForm({ edit, dataForm, handleSubmit, handleChange }) {
           <br />
           <div className="form-group">
             <div className="form-item">
-              <label for="due">Deadline: </label>
+              <label htmlFor="due">Deadline: </label>
               <input
                 type="datetime-local"
                 value={dataForm.date}

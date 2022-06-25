@@ -8,7 +8,8 @@ import "react-vertical-timeline-component/style.min.css";
 import StarIcon from "@material-ui/icons/Star";
 import WorkIcon from "@material-ui/icons/Work";
 import Alarm from "@material-ui/icons/Alarm";
-function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
+function Todo(props) {
+  const { todos, completeTodo, removeTodo, updateTodo } = props;
   const [edit, editTodo] = useState({
     id: null,
     value: "",
@@ -26,9 +27,10 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
     return <TodoForm edit={edit} onSubmit={submitUpdate} />;
   }
   const day = new Date();
+  console.log(todos);
   return (
     <VerticalTimeline>
-      {todos.map((todo, index) => {
+      {todos?.map((todo, index) => {
         //thuc thi
         const myClass = todo.isComplete
           ? "strick"

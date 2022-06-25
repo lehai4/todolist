@@ -4,7 +4,9 @@ import Todo from "./Todo";
 import Modal from "react-modal";
 import storage from "../db/storage";
 function TodoList() {
-  const [todos, setTodos] = useState(storage.get());
+  const [todos, setTodos] = useState(
+    storage.get() === undefined ? [] : storage.get()
+  );
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [dataForm, setDataForm] = useState({});
 
@@ -33,7 +35,6 @@ function TodoList() {
   };
 
   const handleChange = (e) => {
-    // e.preventDefault();
     const { name, value } = e.target;
     setDataForm((prev) => ({
       ...prev,
@@ -42,16 +43,13 @@ function TodoList() {
   };
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
-
+    e.preventDefault();
     let isEdit = dataForm.id ? true : false;
-
     let todo = {
       id: isEdit ? dataForm.id : Math.floor(Math.random() * 10000),
       text: dataForm.text,
       date: dataForm.date,
     };
-
     let newTodos = [];
     if (isEdit) {
       newTodos = todos.map((i) => {
@@ -63,7 +61,6 @@ function TodoList() {
     } else {
       newTodos = [todo, ...todos];
     }
-
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
